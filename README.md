@@ -11,7 +11,7 @@
 [![](https://img.shields.io/amo/users/audio-equalizer77?label=Users&color=blueviolet)](https://addons.mozilla.org/en-US/firefox/addon/audio-equalizer77/)
 ***
 
-# Audio-Equalizer
+# AudioEqualizer
 Stylish audio equalizer in your browser's toolbar popup, with VLC presets.
 
 <p align="center">
