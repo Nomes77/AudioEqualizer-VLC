@@ -1,8 +1,8 @@
-[![Commit rate](https://img.shields.io/github/commit-activity/m/BPower0036/Audio-Equalizer?label=Commits&color=succes)](https://github.com/BPower0036/Audio-Equalizer/commits/)
-[![Last commit](https://img.shields.io/github/last-commit/BPower0036/Audio-Equalizer?label=Last%20commit&color=informational)](https://github.com/BPower0036/Audio-Equalizer/commits/main)
-[![Issues](https://img.shields.io/github/issues/BPower0036/Audio-Equalizer?label=Issues&color=red)](https://github.com/BPower0036/YT-Nonstop/issues)
-[![Issues](https://img.shields.io/github/issues-closed/BPower0036/Audio-Equalizer?color=green&label=Issues)](https://github.com/BPower0036/Audio-Equalizer/issues?q=is%3Aissue+is%3Aclosed)
-[![License](https://img.shields.io/badge/License-GPLv3-blue.svg?label=License&color=lightgrey)](https://github.com/BPower0036/Audio-Equalizer/blob/main/LICENSE) </br>
+[![Commit rate](https://img.shields.io/github/commit-activity/m/BPower0036/AudioEqualizer?label=Commits&color=succes)](https://github.com/BPower0036/AudioEqualizer/commits/)
+[![Last commit](https://img.shields.io/github/last-commit/BPower0036/AudioEqualizer?label=Last%20commit&color=informational)](https://github.com/BPower0036/AudioEqualizer/commits/main)
+[![Issues](https://img.shields.io/github/issues/BPower0036/AudioEqualizer?label=Issues&color=red)](https://github.com/BPower0036/AudioEqualizer/issues)
+[![Issues](https://img.shields.io/github/issues-closed/BPower0036/AudioEqualizer?color=green&label=Issues)](https://github.com/BPower0036/AudioEqualizer/issues?q=is%3Aissue+is%3Aclosed)
+[![License](https://img.shields.io/badge/License-GPLv3-blue.svg?label=License&color=lightgrey)](https://github.com/BPower0036/AudioEqualizer/blob/main/LICENSE) </br>
 [![](https://img.shields.io/badge/dynamic/json?label=Edge&color=important&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Foonighclbdamhbdhmoonekgpgdigiffc)](https://microsoftedge.microsoft.com/addons/detail/audio-equalizer/oonighclbdamhbdhmoonekgpgdigiffc)
 [![](https://img.shields.io/badge/dynamic/json?label=Rating&color=yellow&suffix=/5&query=%24.averageRating&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Foonighclbdamhbdhmoonekgpgdigiffc)](https://microsoftedge.microsoft.com/addons/detail/audio-equalizer/oonighclbdamhbdhmoonekgpgdigiffc)
 [![](https://img.shields.io/badge/dynamic/json?label=Users&color=blueviolet&query=%24.activeInstallCount&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Foonighclbdamhbdhmoonekgpgdigiffc)](https://microsoftedge.microsoft.com/addons/detail/audio-equalizer/oonighclbdamhbdhmoonekgpgdigiffc)</br>
