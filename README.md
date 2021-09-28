@@ -15,6 +15,6 @@
 Stylish audio equalizer in your browser's toolbar popup, with VLC presets.
 
 <p align="center">
-<a href="https://addons.mozilla.org/en-US/firefox/addon/audio-equalizer77/"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get YT-Nonstop for Firefox"></a>
-<a href="https://microsoftedge.microsoft.com/addons/detail/audio-equalizer/oonighclbdamhbdhmoonekgpgdigiffc"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="Get YT-Nonstop for Microsoft Edge"></a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/audio-equalizer77/"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get Audio Equalizer for Firefox"></a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/audio-equalizer/oonighclbdamhbdhmoonekgpgdigiffc"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="Get Audio Equalizer for Microsoft Edge"></a>
 </p>
