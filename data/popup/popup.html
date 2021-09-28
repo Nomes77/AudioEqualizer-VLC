@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+                <style>
+		body {
+			border: 0;
+			margin: 0;
+			padding: 0;
+			color: #555;
+			width: 550px;
+			font-size: 12px;
+			overflow: hidden;
+			font-family: arial,sans-serif;
+	        	background-color: lightgreen;
+		}
+
+		#content {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		#content table {
+		        width: 100%;
+			color: #555;
+			font-size: 12px;
+			border-spacing: 0;
+			font-family: arial,sans-serif;
+		}
+
+		#content table tr td {
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-family: arial,sans-serif;
+		}
+
+		#content .controls-options table tr td[title="Equalizer controls"] {
+			width: 40%;
+		}
+
+		input[type="checkbox"] {
+			margin: 0;
+			vertical-align: middle;
+		}
+
+		label {
+			color: black;
+			font-size: 12px;
+			user-select: none;
+			font-family: monospace;
+			background-color: transparent !important;
+		}
+
+		.spacer {
+			width: 85px;
+		}
+
+		.button {
+			border: 0;
+			color: #555;
+			font-size: 12px;
+			cursor: pointer;
+			border-radius: 0;
+			user-select: none;
+			text-align: center;
+			display: inline-block;
+			text-decoration: none;
+			vertical-align: middle;
+			transition: 300ms ease all;
+			font-family: arial,sans-serif;
+		}
+
+		.ok, .notok, .presets {
+			color: #555;
+			width: 90px;
+			height: 28px;
+			font-size: 12px;
+			line-height: 28px;
+			text-align: center;
+			font-family: arial,sans-serif;
+			background-color: rgba(255, 255, 255, 0.95);
+		}
+
+		.controls-main {
+			padding: 0;
+			background-color: black;
+		}
+
+		.chart {
+			width: 360px;
+			height: 64px;
+			max-height: 64px;
+			margin: 5px 0 0 0;
+			font-family: arial,sans-serif;
+		}
+
+		.controls-sliders {
+			user-select: none;
+			text-align: center;
+			padding: 10px 0 5px 0;
+		}
+
+		.controls-sliders .slider {
+			margin: 0;
+			padding: 0;
+			width: 38px;
+			text-align: center;
+			display: inline-block;
+			background-repeat: no-repeat;
+			background-position: top center;
+		}
+
+		.controls-sliders .box.empty {
+			width: 50px;
+			display: inline-block;
+		}
+
+		.controls-sliders .slider input {
+			width: 28px;
+			height: 150px;
+			margin: 0 0 5px 0;
+			cursor: -webkit-grab;
+			-webkit-appearance: slider-vertical;
+		}
+
+        	.controls-sliders .slider.master {
+			width: 50px;
+		}
+
+		.controls-options {
+			background-color: #525252;
+		}
+
+		.controls-table {
+			margin: 0;
+			width: 100%;
+			padding: 5px;
+			background-color: black;
+			font-family: arial, sans-serif;
+			border-spacing: 1px 0 !important;
+		}
+
+		.controls-options .preset-name {
+			height: 20px;
+			font-size: 10px;
+			line-height: 20px;
+			text-align: right;
+			padding-right: 5px;
+			display: inline-block;
+		}
+
+		.toolbar {
+			border-left: solid 1px #6d6d6d;
+		}
+
+		.toolbar svg {
+			fill: white;
+			pointer-events: none;
+			vertical-align: middle;
+		}
+
+		.toolbar td {
+			width: 28px;
+			height: 22px;
+			cursor: pointer;
+			user-select: none;
+			padding: 3px !important;
+			transition: 300ms ease all;
+		}
+
+		.toolbar td:hover {
+			background-color: grey;
+		}
+
+		.button-set {
+			width: 110px;
+			border-right: solid 1px #6d6d6d;
+		}
+
+		.button-set table {
+			border-spacing: 0 1px !important;
+		}
+
+		.button-set td {
+			width: 110px;
+		}
+
+		.button-set td a {
+			width: 90px;
+			color: black;
+			height: 28px;
+			font-size: 12px;
+			line-height: 28px;
+			font-family: arial, sans-serif;
+			background-color: rgb(87 230 87);
+		}
+
+		.button-set td a[state="ON"] {background-color: rgb(87 230 87)}
+		.button-set td a[state="OFF"] {background-color: red}
+
+		.mono {
+			width: 64px;
+		}
+
+		.mono label {
+			border: 0;
+			padding: 0;
+			height: 28px;
+			font-size: 12px;
+			cursor: pointer;
+			user-select: none;
+			line-height: 28px;
+			padding-left: 5px;
+			text-align: center;
+			display: inline-block;
+			font-family: arial,sans-serif;
+			color: rgba(255, 255, 255, 0.95);
+		}
+
+		.spacer {
+			width: 45%;
+		}
+
+		#presets-select {
+			border: 0;
+			margin: 0;
+			width: 100%;
+			color: black;
+			height: 28px;
+			cursor: pointer;
+			line-height: 28px;
+			text-align: center;
+			background-color: rgba(255, 255, 255, 0.95);
+		}
+
+		#presets-select {
+			text-align: left;
+			padding: 0 0 0 5px;
+			vertical-align: middle;
+			border: solid 1px rgba(255, 255, 255, 0.95);
+		}
+
+                </style>
+		<link href="modal/modal.css" rel="stylesheet" type="text/css">
+	</head>
+	<body class="body">
+		<div class="container" id="content">
+			<div class="controls-main">
+				<table>
+					<tr>
+						<td class="button-set">
+							<table>
+								<tr>
+									<td class="toggle">
+										<a href="#" class="button toggle" id="toggle">ON | OFF</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<canvas class="chart" id="chart"></canvas>
+						</td>
+						<td class="toolbar">
+							<table>
+								<tr>
+									<td id="reload" title="Reload current tab">
+										<svg height="10" width="10" viewBox="0 0 512 512">
+						          <path d="M281.525,228.102l104.758-78.042 c12.082-12.085,12.082-24.259,0-36.342L281.525,35.674c-3.274-2.359-7.359-3.725-11.723-3.725c-10.992,0-19.803,8.536-19.803,19.083  v35.429C144.611,86.737,59.205,172.046,59.205,277.258c0,105.396,85.672,190.793,191.248,190.793 c98.03,0,178.809-73.498,189.977-168.169c0.092-0.275,0.367-3.187,0.367-4.455c0-9.992-8.181-18.169-18.261-18.169h-45.793 c-14.993,0-26.349,10.355-27.893,18.986c-8.811,46.156-49.519,80.954-98.397,80.954c-55.329,0-100.127-44.701-100.127-99.94 c0-55.064,44.523-99.667,99.674-99.941v35.437c0,10.541,8.811,19.076,19.803,19.076C274.166,231.83,278.251,230.471,281.525,228.102 z"/>
+						        </svg>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="controls-sliders">
+				<div class="slider master"><input id="ch-eq-slider-0" orient="vertical" eq="master" type="range" min="0" step="0.083333333333333333" max="2" value="1"><label>Preamp</label></div>
+				<div class="box empty"></div>
+				<div class="slider"><input id="ch-eq-slider-1" orient="vertical" eq="32" type="range" min="-12" step="0.01" max="12" value="0"><label>32</label></div>
+				<div class="slider"><input id="ch-eq-slider-2" orient="vertical" eq="64" type="range" min="-12" step="0.01" max="12" value="0"><label>64</label></div>
+				<div class="slider"><input id="ch-eq-slider-3" orient="vertical" eq="125" type="range" min="-12" step="0.01" max="12" value="0"><label>125</label></div>
+				<div class="slider"><input id="ch-eq-slider-4" orient="vertical" eq="250" type="range" min="-12" step="0.01" max="12" value="0"><label>250</label></div>
+				<div class="slider"><input id="ch-eq-slider-5" orient="vertical" eq="500" type="range" min="-12" step="0.01" max="12" value="0"><label>500</label></div>
+				<div class="slider"><input id="ch-eq-slider-6" orient="vertical" eq="1000" type="range" min="-12" step="0.01" max="12" value="0"><label>1k</label></div>
+				<div class="slider"><input id="ch-eq-slider-7" orient="vertical" eq="2000" type="range" min="-12" step="0.01" max="12" value="0"><label>2k</label></div>
+				<div class="slider"><input id="ch-eq-slider-8" orient="vertical" eq="4000" type="range" min="-12" step="0.01" max="12" value="0"><label>4k</label></div>
+				<div class="slider"><input id="ch-eq-slider-9" orient="vertical" eq="8000" type="range" min="-12" step="0.01" max="12" value="0"><label>8k</label></div>
+				<div class="slider"><input id="ch-eq-slider-10" orient="vertical" eq="16000" type="range" min="-12" step="0.01" max="12" value="0"><label>16k</label></div>
+			</div>
+			<div class="controls-options">
+				<table class="controls-table">
+					<tr>
+						<td class="mono"><input type="checkbox" id="channels"><label for="channels">Mono</label></td>
+						<td class="spacer"></td>
+						<td title="Equalizer controls">
+							<select class="button presets" id="presets-select">
+								<optgroup label="Action">
+									<option id="preset_save" value="action::save">Save</option>
+									<option id="preset_save_as" value="action::save-as">Save as</option>
+									<option id="preset-delete" value="action::delete">Delete</option>
+									<option id="preset_reset" value="action::reset">Reset</option>
+								</optgroup>
+								<optgroup label="My presets" id="presets-select-user"></optgroup>
+								<optgroup label="Predefined presets" id="presets-select-predefined"></optgroup>
+								<optgroup label="Reset">
+									<option id="preset_reset_all" value="action::reset-all">Reset to default</option>
+								</optgroup>
+							</select>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="modal" id="modal-prompt">
+			<div class="modal-overlay"></div>
+			<div class="modal-content">
+				<div class="modal-message"></div>
+				<div class="modal-input"><input type="text" class="input"/></div>
+				<div class="modal-buttons">
+					<a href="#" class="button ok">Yes</a>
+					<a href="#" class="button notok">No</a>
+				</div>
+			</div>
+		</div>
+		<div class="modal" id="modal-confirm">
+			<div class="modal-overlay"></div>
+			<div class="modal-content">
+				<div class="modal-message"></div>
+				<div class="modal-buttons">
+					<a href="#" class="button ok">Yes</a>
+					<a href="#" class="button notok">No</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="modal/modal.js"></script>
+		<script type="text/javascript" src="chart/chart.js"></script>
+		<script type="text/javascript" src="sliders/sliders.js"></script>
+		<script type="text/javascript" src="config.js"></script>
+		<script type="text/javascript" src="popup.js"></script>
+	</body>
+</html>
