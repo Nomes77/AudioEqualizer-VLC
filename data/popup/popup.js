@@ -85,6 +85,38 @@ config.loadsettings = function () {
 	for (var i = 0; i < userpresets.length; i++) if (!userpresets[i].default) appendpreset(userpresets[i], userpresetsselect, 'my');
 };
 
+config.tab = {
+  "query": {
+    "active": function (callback) {
+      chrome.tabs.query({"active": true, "currentWindow": true}, function (tabs) {
+        if (tabs && tabs.length) {
+          config.tab.check.url(tabs[0], function (tab) {
+            callback(tab);
+          });
+        }
+      });
+    } 
+  },
+  "check": {
+    "url": function (tab, callback) {
+      if (tab.url) callback(tab);
+      else {
+        chrome.tabs.executeScript(tab.id, {
+          "runAt": "document_start",
+          "code": "document.location.href"
+        }, function (result) {
+          var error = chrome.runtime.lastError;
+          if (result && result.length) {
+            tab.url = result[0];
+          }
+          /*  */
+          callback(tab);
+        });
+      }
+    }
+  }
+};
+
 config.init = function (e) {
 	config.storage.eq = e.eq;
   config.storage.ch = e.ch;
@@ -94,6 +126,7 @@ config.init = function (e) {
 	var reset = document.getElementById("reset");
 	var toggle = document.getElementById("toggle");
 	var reload = document.getElementById("reload");
+	var refresh = document.getElementById("refresh");
 	var channels = document.getElementById("channels");
 	var presets = document.getElementById("presets-select");
 	/*  */
@@ -124,7 +157,7 @@ config.init = function (e) {
 		config.sliderinputs[i].onchange = onsliderchange;
 		config.sliderinputs[i].oninput = onsliderchange;
 	}
-  /*  */
+	/*  */
 	channels.onchange = function (e) {
 		config.storage.ch.mono = e.target.checked;
 		config.save();
@@ -139,16 +172,15 @@ config.init = function (e) {
 	};
 	/*  */
 	reload.onclick = function () {
-		chrome.tabs.query({"active": true}, function (tabs) {
-			if (tabs && tabs.length) {
-				if (tabs[0].url.indexOf("http") === 0) {
-					chrome.tabs.reload(tabs[0].id, {"bypassCache": true}, function () {});
+		config.tab.query.active(function (tab) {
+			if (tab && tab.url) {
+				if (tab.url.indexOf("http") === 0) {
+					chrome.tabs.reload(tab.id, {"bypassCache": true}, function () {});
 				}
 			}
 		});
 	};
 	/*  */
-  /*  */
 	presets.onchange = function (e) {
 		config.selectedpreset = config.getselected();
 		/*  */
@@ -215,10 +247,10 @@ config.load = function () {
   window.removeEventListener("load", config.load, false);
   chrome.storage.local.get(null, function (data) {
 		if (data) {
-      if (data.presets) config.list = data.presets;
+			if (data.presets) config.list = data.presets;
 			if (data.selected) config.setselected(data.selected.name);
 			/*  */
-      config.init(data);
+			config.init(data);
 		}
   });
 };

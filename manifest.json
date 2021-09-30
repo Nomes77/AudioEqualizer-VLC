@@ -8,7 +8,7 @@
          "64": "data/icons/64.png"
       },
       "default_popup": "data/popup/popup.html",
-      "default_title": "Audio Equalizer"
+      "default_title": "Audio Equalizer (VLC)"
    },
    "content_scripts": [ {
       "all_frames": true,
@@ -22,7 +22,7 @@
       "64": "data/icons/64.png"
    },
    "manifest_version": 2,
-   "name": "Audio Equalizer",
-   "permissions": [ "tabs", "storage", "http://*/*", "https://*/*" ],
-   "version": "0.2.0"
+   "name": "Audio Equalizer (VLC)",
+   "permissions": [ "tabs", "storage", "http://*/*", "https://*/*", "contextMenus" ],
+   "version": "0.2.1"
 }

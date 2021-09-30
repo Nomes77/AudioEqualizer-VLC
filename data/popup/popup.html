@@ -191,8 +191,8 @@
 		.button-set td a {
 			width: 90px;
 			color: black;
-			height: 28px;
-			font-size: 12px;
+			height: 55px;
+			font-size: 14px;
 			line-height: 28px;
 			font-family: arial, sans-serif;
 			background-color: rgb(87 230 87);
@@ -200,6 +200,12 @@
 
 		.button-set td a[state="ON"] {background-color: rgb(87 230 87)}
 		.button-set td a[state="OFF"] {background-color: red}
+		hr {
+			margin-top: 0.5px;
+			margin-bottom: 0.5px;
+			color: red;
+		}
+		.button-set td a[state="OFF"] hr {color: rgb(87 230 87)}
 
 		.mono {
 			width: 64px;
@@ -255,7 +261,7 @@
 							<table>
 								<tr>
 									<td class="toggle">
-										<a href="#" class="button toggle" id="toggle">ON | OFF</a>
+										<a href="#" class="button toggle" id="toggle">ON<hr> OFF</a>
 									</td>
 								</tr>
 							</table>
