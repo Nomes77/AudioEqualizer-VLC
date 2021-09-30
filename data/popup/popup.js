@@ -119,10 +119,10 @@ config.tab = {
 
 config.init = function (e) {
 	config.storage.eq = e.eq;
-  config.storage.ch = e.ch;
-  config.storage.state = e.state;
+	config.storage.ch = e.ch;
+	config.storage.state = e.state;
 	config.storage.presets = e.presets;
-  /*  */
+	/*  */
 	var reset = document.getElementById("reset");
 	var toggle = document.getElementById("toggle");
 	var reload = document.getElementById("reload");
@@ -137,7 +137,7 @@ config.init = function (e) {
 			if (config.storage.eq[index + i] && config.storage.eq[index + i].f !== undefined) config.storage.eq[index + i].gain = parseFloat(config.storage.eq[index + i].gain, 10) + diff;
 		}
 	};
-  /*  */
+	/*  */
 	var onsliderchange = function (evt) {
 		var slider = evt.target.getAttribute("eq");
 		if (slider === "master") config.storage.eq[0].gain = config.elementvalue("ch-eq-slider-0");
@@ -149,10 +149,10 @@ config.init = function (e) {
 			config.setequalizer();
 			chart.prepareChart(config.storage.eq);
 		}
-    /*  */
+		/*  */
 		config.save();
 	};
-  /*  */
+	/*  */
 	for (var i = 0; i < config.sliderinputs.length; i++) {
 		config.sliderinputs[i].onchange = onsliderchange;
 		config.sliderinputs[i].oninput = onsliderchange;
@@ -189,7 +189,7 @@ config.init = function (e) {
 				modal.confirm('Do you want to save "' + config.selectedpreset.name + '" preset?', function () {
 					for (var i = 0; i < config.selectedpreset.gains.length; i++) config.selectedpreset.gains[i] = config.elementvalue('ch-eq-slider-' + (i + 1));
 					config.setpreset(config.selectedpreset);
-          config.save();
+					config.save();
 				});
 			break;
 			case "action::save-as":
@@ -200,22 +200,22 @@ config.init = function (e) {
 						preset.name = name;
 						config.setnewpreset(preset);
 						config.setselected(name);
-            config.save();
+						config.save();
 					}
 				}, function () {});
 			break;
 			case "action::delete":
 				modal.confirm('Do you want to delete "' + config.selectedpreset.name + '" preset?', function () {
-          config.removebyname(config.selectedpreset.name);
-          config.save();
-        });
+					config.removebyname(config.selectedpreset.name);
+					config.save();
+				});
 			break;
 			case "action::reset":
 				modal.confirm('Do you want to reset "' + config.selectedpreset.name + '" preset?', function () {
 					config.reset(config.storage, config.selectedpreset.name);
 					config.setselected();
 					config.updateequalizer();
-          config.save();
+					config.save();
 				});
 			break;
 			case "action::reset-all":
@@ -223,7 +223,7 @@ config.init = function (e) {
 					config.resetall(config.storage);
 					config.setselected();
 					config.updateequalizer();
-          config.save();
+					config.save();
 				});
 			break;
 			default:
@@ -232,15 +232,15 @@ config.init = function (e) {
 				config.selectedpreset = config.getselected();
 				config.updateequalizer();
 				config.loadsettings();
-        config.save();
+				config.save();
 		}
 	};
-  /*  */
-  config.setequalizer();
-  config.loadsettings();
-  sliders.prepareSliders();
+	/*  */
+	config.setequalizer();
+	config.loadsettings();
+	sliders.prepareSliders();
 	chart.prepareChart(config.storage.eq);
-  channels.checked = config.storage.ch.mono;
+	channels.checked = config.storage.ch.mono;
 };
 
 config.load = function () {
